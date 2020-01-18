@@ -14,3 +14,4 @@ Double click the .bat script the run the program.
 STILL TODO : 
  - Run the script as a background task that launches itself at computer start.
  - Pick the default printer everytime or select it a first time then never prompt again.
+ - Implement a log system.
