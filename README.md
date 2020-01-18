@@ -17,6 +17,8 @@ STILL TODO :
  - Allow directory to watch selection with the printer selection.
  - Implement a log system.
  - Implement a graphic interface. 
+ - Implement tests. 
+ - Setup maven testing workflow on git actions. 
  
 REQUIREMENTS :
  - Maven.
