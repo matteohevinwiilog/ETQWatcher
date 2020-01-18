@@ -27,3 +27,4 @@ DEPENDENCIES :
  - PdfBox Tools. 
  - Apache Commons Logging. 
  - Maven assembly plug-in. 
+ - Maven compiler plug-in. 
