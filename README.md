@@ -12,13 +12,13 @@ java -jar ETQWatcher-1.0-SNAPSHOT-jar-with-dependencies.jar
 Double click the .bat script to run the program.
 
 STILL TODO : 
- - Run the script as a background task that launches itself at computer start.
- - Pick the default printer everytime or select it a first time then never prompt again.
- - Allow directory to watch selection with the printer selection.
- - Implement a log system.
- - Implement a graphic interface. 
- - Implement tests. 
- - Setup maven testing workflow on git actions. 
+ - Run the script as a background task that launches itself at computer start. (3)
+ - Pick the default printer everytime or select it a first time then only prompt again when wanted. (2)
+ - Allow directory to watch selection with the printer selection. (1)
+ - Implement a log system. (4)
+ - Implement a graphic interface. (6)
+ - Implement tests. (5)
+ - Setup maven testing workflow on git actions. (7)
  
 REQUIREMENTS :
  - Maven.
