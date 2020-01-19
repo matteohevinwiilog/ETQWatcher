@@ -15,12 +15,14 @@ public class ETQWatcher {
     private ETQHandlerCallable ETQHandler;
     private WatchKey watchKey;
     private ETQPrinter printer;
+    private ETQWatcherRun etqWatcherRun;
 
     public ETQWatcher(Path pathToWatch, ETQPrinter printer) throws IOException {
         this.pathToWatch = pathToWatch;
         this.printer = printer;
         this.watchService = FileSystems.getDefault().newWatchService();
         this.ETQHandler = new ETQHandlerCallable();
+        this.etqWatcherRun = new ETQWatcherRun(this);
     }
 
     public Path getPathToWatch() {
@@ -32,6 +34,7 @@ public class ETQWatcher {
     }
 
     private void registerPathForWatch() throws IOException {
+        System.out.println("Dossier " + this.pathToWatch + " monitoré...");
         this.pathToWatch.register(
                 this.watchService,
                 StandardWatchEventKinds.ENTRY_CREATE,
@@ -40,7 +43,7 @@ public class ETQWatcher {
         );
     }
 
-    private void treatWatchEvent() throws Exception {
+    public void treatWatchEvent() throws Exception {
         while ((this.watchKey = this.watchService.take()) != null) {
             for (WatchEvent<?> event : this.watchKey.pollEvents()) {
                 switch (event.kind().name()) {
@@ -66,13 +69,13 @@ public class ETQWatcher {
     }
 
     public void startWatching() throws Exception {
-        System.out.println("Dossier " + this.pathToWatch + " monitoré...");
         this.registerPathForWatch();
-        this.treatWatchEvent();
+        this.etqWatcherRun.start();
     }
 
-    public void unWatch() {
-        this.watchKey.cancel();
+    public void stopWatching() {
+        this.etqWatcherRun.interrupt();
+        if (this.watchKey != null) this.watchKey.cancel();
     }
 
     private String getExtensionByStringHandling(String filename) {

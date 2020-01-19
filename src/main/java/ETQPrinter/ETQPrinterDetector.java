@@ -58,4 +58,13 @@ public class ETQPrinterDetector {
         }
         return chosenPrinter;
     }
+
+    public PrintService getByName(String printerNameChosen) {
+        for (PrintService printService : this.getAvailablePrinters()) {
+            if (printService.getName().equals(printerNameChosen)) {
+                return printService;
+            }
+        }
+        return null;
+    }
 }
