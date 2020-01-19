@@ -58,8 +58,6 @@ public class ETQWatcherStart {
     }
 
     private boolean needsStartupSetup() {
-        System.out.println(this.etqWatcherPreferences.getChosenPrinter());
-        System.out.println(this.etqWatcherPreferences.getChosenPathToWatch());
         return (
                 this.etqWatcherPreferences.getChosenPrinter() == null ||
                         this.etqWatcherPreferences.getChosenPathToWatch() == null ||
