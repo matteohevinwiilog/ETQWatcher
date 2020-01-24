@@ -15,7 +15,7 @@ STILL TODO :
  - Run the script as a background task that launches itself at computer start. (1)
  - Implement a log system. (2)
  - Implement tests. (3)
- - Setup maven testing workflow on git actions. (5)
+ - Setup maven testing workflow on git actions. (4)
  
 REQUIREMENTS :
  - Maven.
