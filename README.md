@@ -15,6 +15,7 @@ ETQLaunch :
     - kills the previous monitoring task and launches the watching with the window to edit the preferences. 
     - To monitor in background with the new preferences, you must relaunch ETQWatch.
 ETQWatch : 
+    - kills the previous monitoring task.
     - Launches the monitoring task in background, with the preferences set by the ETQLaunch.
     
 
