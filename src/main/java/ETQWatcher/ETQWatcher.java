@@ -58,7 +58,7 @@ public class ETQWatcher {
                         break;
                 }
                 String fileExtension = this.getExtensionByStringHandling(event.context().toString());
-                if (fileExtension != null && fileExtension.equals("pdf")) {
+                if (fileExtension != null && fileExtension.equals("pdf") && respectsWiilogPrefix(event.context().toString())) {
                     this.printer.setPathToPrint(Paths.get(this.pathToWatch.toString() + "\\" + event.context().toString()));
                     this.ETQHandler.setPrinter(this.printer);
                     this.ETQHandler.call();
@@ -80,5 +80,9 @@ public class ETQWatcher {
 
     private String getExtensionByStringHandling(String filename) {
         return filename.lastIndexOf(".") >= 0 ? filename.substring(filename.lastIndexOf(".") + 1) : null;
+    }
+
+    private boolean respectsWiilogPrefix(String filename) {
+        return filename.substring(0, 4).equals("ETQW");
     }
 }
